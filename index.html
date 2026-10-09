@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículo de Renan Aprigio Dias de Moura, estudante de Desenvolvimento de Sistemas.">
+  <meta name="theme-color" content="#10243a">
+  <title>Renan Aprigio Dias de Moura | Currículo</title>
+  <style>
+    :root {
+      --ink: #172638;
+      --muted: #526174;
+      --navy: #10243a;
+      --navy-soft: #1a3652;
+      --accent: #16a085;
+      --accent-pale: #e3f6f0;
+      --paper: #ffffff;
+      --side: #f2f6f9;
+      --line: #dce5eb;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 34px 16px;
+      background: #e8eef3;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      width: min(100%, 1000px);
+      margin: 0 auto 14px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .action-button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      background: var(--navy);
+      color: white;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .action-button:hover { background: var(--navy-soft); transform: translateY(-1px); }
+    .action-button.secondary { background: white; color: var(--navy); border: 1px solid #cbd7df; }
+
+    .resume {
+      width: min(100%, 1000px);
+      min-height: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--paper);
+      border-radius: 14px;
+      box-shadow: 0 18px 55px rgba(20, 40, 60, .14);
+    }
+
+    .hero {
+      position: relative;
+      padding: 38px 44px 35px;
+      color: white;
+      background: linear-gradient(120deg, var(--navy) 0%, #16334c 68%, #155c58 130%);
+      isolation: isolate;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 270px;
+      height: 270px;
+      right: -75px;
+      top: -125px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      box-shadow: 0 0 0 28px rgba(255,255,255,.025), 0 0 0 58px rgba(255,255,255,.02);
+    }
+    .eyebrow {
+      margin: 0 0 13px;
+      color: #79dec5;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 690px;
+      margin: 0;
+      font-size: clamp(31px, 4.7vw, 43px);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+    .headline {
+      margin: 12px 0 0;
+      color: #d5e5ee;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .focus-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(121, 222, 197, .38);
+      border-radius: 7px;
+      background: rgba(10, 28, 43, .25);
+      color: #e8fff8;
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .focus-line::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #79dec5;
+      flex: 0 0 auto;
+    }
+
+    .layout { display: grid; grid-template-columns: 32% 68%; }
+    aside {
+      padding: 32px 28px 38px;
+      background: var(--side);
+      border-right: 1px solid var(--line);
+    }
+    main { padding: 32px 42px 38px; min-width: 0; }
+    section { margin: 0 0 27px; }
+    section:last-child { margin-bottom: 0; }
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .1em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 17px;
+      flex: 0 0 auto;
+      border-radius: 3px;
+      background: var(--accent);
+    }
+    p { margin: 0 0 10px; }
+    .muted { color: var(--muted); }
+    .contact-list { display: grid; gap: 11px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 9px; color: var(--muted); overflow-wrap: anywhere; }
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      border-radius: 6px;
+      background: white;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+    .contact-icon svg { width: 13px; height: 13px; }
+    a { color: inherit; text-decoration: none; }
+    .contact-item a:hover, .project-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+    .education-title { margin: 0 0 5px; font-weight: 800; line-height: 1.35; }
+    .education-meta { color: var(--muted); font-size: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 9px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: var(--accent-pale);
+      color: #11765f;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .skill-group { margin-bottom: 14px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-label { display: block; margin-bottom: 7px; color: var(--navy); font-size: 12px; font-weight: 800; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      display: inline-block;
+      padding: 5px 8px;
+      border: 1px solid #d6e2e8;
+      border-radius: 5px;
+      background: #fff;
+      color: #3b4f60;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .interest-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .interest {
+      padding: 5px 8px;
+      color: #526174;
+      font-size: 12px;
+      border-left: 2px solid #8bcdbb;
+      background: rgba(255,255,255,.65);
+    }
+
+    .summary { color: #405164; font-size: 14px; line-height: 1.7; }
+    .project {
+      position: relative;
+      margin: 0 0 17px;
+      padding: 0 0 17px 17px;
+      border-bottom: 1px solid var(--line);
+    }
+    .project:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-pale);
+    }
+    .project-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; }
+    h3 { margin: 0 0 5px; color: var(--ink); font-size: 15px; font-weight: 800; }
+    .project p { margin: 0 0 8px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .project-tech { margin-top: 7px; color: #536b78; font-size: 11px; font-weight: 700; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .project-link { color: #11765f; font-size: 12px; font-weight: 800; }
+    .detail-list { display: grid; gap: 10px; padding-left: 16px; color: var(--muted); }
+    .detail-list li { padding-left: 3px; }
+    .detail-list li::marker { color: var(--accent); }
+    .small-note { color: var(--muted); font-size: 12px; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 42px;
+      border-top: 1px solid var(--line);
+      color: #778797;
+      font-size: 10px;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 12px; }
+      .resume { min-height: auto; border-radius: 10px; }
+      .hero { padding: 30px 24px 27px; }
+      .layout { grid-template-columns: 1fr; }
+      aside { border-right: 0; border-bottom: 1px solid var(--line); padding: 25px 24px; }
+      main { padding: 27px 24px 30px; }
+      .footer { padding: 13px 24px; flex-direction: column; }
+      .actions { justify-content: stretch; }
+      .action-button { flex: 1; }
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      html, body { width: 210mm; margin: 0; padding: 0; background: white; }
+      body { font-size: 10pt; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .actions { display: none !important; }
+      .resume { width: 210mm; min-height: 297mm; margin: 0; border-radius: 0; box-shadow: none; }
+      .hero { padding: 10mm 12mm 8mm; }
+      h1 { font-size: 29pt; }
+      .headline { font-size: 11pt; }
+      .focus-line { margin-top: 5mm; padding: 5px 8px; font-size: 8.5pt; }
+      .layout { grid-template-columns: 32% 68%; }
+      aside { padding: 8mm 7mm 8mm 9mm; }
+      main { padding: 8mm 10mm 8mm 9mm; }
+      section { margin-bottom: 6mm; }
+      h2 { margin-bottom: 3mm; font-size: 9pt; }
+      .summary { font-size: 9.5pt; line-height: 1.55; }
+      .project { margin-bottom: 4mm; padding-bottom: 4mm; }
+      .project p { font-size: 8.8pt; line-height: 1.45; }
+      .project h3 { font-size: 10pt; }
+      .tag, .interest { font-size: 8pt; padding: 3px 5px; }
+      .contact-item, .education-meta, .detail-list { font-size: 8.5pt; }
+      .status { font-size: 7.5pt; }
+      .footer { padding: 3mm 10mm; font-size: 7.5pt; }
+      a { color: inherit; }
+      .project, section, aside { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="actions" aria-label="Ações do currículo">
+    <button class="action-button secondary" type="button" onclick="window.location.href='https://github.com/renandias3158'">Abrir GitHub</button>
+    <button class="action-button" type="button" onclick="window.print()">Imprimir / salvar em PDF</button>
+  </div>
+
+  <article class="resume" aria-label="Currículo de Renan Aprigio Dias de Moura">
+    <header class="hero">
+      <p class="eyebrow">Currículo · Tecnologia</p>
+      <h1>Renan Aprigio<br> Dias de Moura</h1>
+      <p class="headline">Estudante de Desenvolvimento de Sistemas</p>
+      <div class="focus-line">Jovem Aprendiz / Estágio em TI · Desenvolvimento e suporte técnico</div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <section aria-labelledby="contato-title">
+          <h2 id="contato-title">Contato</h2>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+              <span>[Seu e-mail]</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18H6z"/><path d="M10 18h4"/></svg></span>
+              <span>[Seu telefone]</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span>Pernambuco, Brasil</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.07c-3.1.68-3.75-1.31-3.75-1.31-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.12.08 1.72 1.15 1.72 1.15 1 .1.76 2.12 3.35 1.6.1-.73.39-1.23.7-1.51-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.06 1.15a10.6 10.6 0 0 1 5.57 0c2.12-1.45 3.06-1.15 3.06-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.76 1.02.76 2.06V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg></span>
+              <a href="https://github.com/renandias3158" target="_blank" rel="noreferrer">github.com/renandias3158</a>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="formacao-title">
+          <h2 id="formacao-title">Formação</h2>
+          <p class="education-title">Técnico Integrado em Desenvolvimento de Sistemas</p>
+          <p class="education-meta">Instituto Federal de Pernambuco (IFPE)<br>Campus Jaboatão dos Guararapes</p>
+          <span class="status">3º ano · Em andamento</span>
+        </section>
+
+        <section aria-labelledby="skills-title">
+          <h2 id="skills-title">Competências</h2>
+          <div class="skill-group">
+            <span class="skill-label">Desenvolvimento web</span>
+            <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Programação</span>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">Handlebars</span></div>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Ferramentas e integração</span>
+            <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitHub Pages</span><span class="tag">APIs</span><span class="tag">IA generativa</span></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="interesses-title">
+          <h2 id="interesses-title">Interesses</h2>
+          <div class="interest-list">
+            <span class="interest">Engenharia de Software</span>
+            <span class="interest">Automação</span>
+            <span class="interest">Inteligência Artificial</span>
+            <span class="interest">Robótica</span>
+            <span class="interest">Desenvolvimento de jogos</span>
+          </div>
+        </section>
+      </aside>
+
+      <main>
+        <section aria-labelledby="perfil-title">
+          <h2 id="perfil-title">Perfil profissional</h2>
+          <p class="summary">Estudante do 3º ano do curso técnico integrado em Desenvolvimento de Sistemas no IFPE. Desenvolvo projetos acadêmicos com foco em aplicações web, programação e integração de serviços. Busco uma primeira oportunidade em tecnologia para aplicar meus conhecimentos, aprender com uma equipe e contribuir com soluções práticas.</p>
+        </section>
+
+        <section aria-labelledby="projetos-title">
+          <h2 id="projetos-title">Projetos em destaque</h2>
+
+          <article class="project">
+            <div class="project-head"><h3>IFPE Career AI · CorrerIA-IFPE</h3></div>
+            <p>Protótipo web para orientação profissional e preparação para entrevistas, com análise de vagas, apoio à elaboração de respostas e integração com inteligência artificial.</p>
+            <div class="project-tech">HTML · CSS · JavaScript · Gemini API · localStorage</div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/renandias3158/CorrerIA-IFPE" target="_blank" rel="noreferrer">Repositório ↗</a>
+              <a class="project-link" href="https://renandias3158.github.io/CorrerIA-IFPE/" target="_blank" rel="noreferrer">Demonstração ↗</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head"><h3>FeynParet-Study</h3></div>
+            <p>Projeto acadêmico de apoio aos estudos, com conteúdo sobre métodos de aprendizagem, organização do ambiente e recursos educacionais.</p>
+            <div class="project-tech">Python · Projeto acadêmico</div>
+            <div class="project-links"><a class="project-link" href="https://github.com/renandias3158/FeynParet-Study" target="_blank" rel="noreferrer">Repositório ↗</a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head"><h3>Projeto AV3 · Aplicação web com IA</h3></div>
+            <p>Projeto em equipe para desenvolver uma aplicação web integrando Python e recursos de inteligência artificial, incluindo preparação para publicação.</p>
+            <div class="project-tech">Python · HTML · CSS · Machine Learning</div>
+            <div class="project-links"><a class="project-link" href="https://github.com/renandias3158/projeto-AV3" target="_blank" rel="noreferrer">Repositório ↗</a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-head"><h3>Handlebars do Node</h3></div>
+            <p>Projeto de estudo para praticar renderização de páginas com templates usando Node.js e Handlebars.</p>
+            <div class="project-tech">JavaScript · Node.js · Handlebars</div>
+            <div class="project-links"><a class="project-link" href="https://github.com/renandias3158/handlebars-do-node" target="_blank" rel="noreferrer">Repositório ↗</a></div>
+          </article>
+        </section>
+
+        <section aria-labelledby="destaques-title">
+          <h2 id="destaques-title">Destaques</h2>
+          <ul class="detail-list">
+            <li>Prática em projetos acadêmicos e desenvolvimento de protótipos funcionais.</li>
+            <li>Uso do GitHub para versionar e apresentar projetos.</li>
+            <li>Interesse em desenvolvimento de software, automação e integração de IA.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <span>Portfólio e projetos disponíveis no GitHub.</span>
+      <span>Currículo em HTML · pronto para GitHub Pages</span>
+    </footer>
+  </article>
+</body>
+</html>
